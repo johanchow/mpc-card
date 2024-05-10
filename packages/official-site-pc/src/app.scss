@@ -1,0 +1,29 @@
+@import 'common';
+
+.onlycoin-app {
+  background: #000000;
+  min-height: 100vh;
+}
+
+.app-header {
+  height: pxToRem(128px);
+  padding: 0 pxToRem(50px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+// 底部高亮着重横线
+.bottom-line-highlight {
+  height: 2px;
+  border-radius: 2px 0px 0px 0px;
+  opacity: 0px;
+  background: linear-gradient(270deg, #FFFFFF 0%, #AAAAAA 100%);
+}
+
+.section-dividing-line {
+  width: 100vw;
+  height: 1px;
+  background: #383838;
+}
+

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "official-common": "1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

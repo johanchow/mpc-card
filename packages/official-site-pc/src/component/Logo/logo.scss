@@ -1,0 +1,20 @@
+@import '../../common.scss';
+
+.app-logo {
+  .app-logo-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: pxToRem(30px);
+    img {
+      margin-right: pxToRem(10px);
+    }
+    span {
+      font-family: Inter;
+      font-size: pxToRem(40px);
+      font-weight: 700;
+      line-height: pxToRem(48.41px);
+      text-align: left;
+      color: #FFFFFF;
+    }
+  }
+}

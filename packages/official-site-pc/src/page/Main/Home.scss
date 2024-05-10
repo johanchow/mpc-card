@@ -1,0 +1,45 @@
+@import '../../common';
+
+.home-page {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  .home-body-zone {
+    border-left: 1px solid #383838;
+    border-right: 1px solid #cd8787;
+    width: pxToRem(1520px);
+    .shopping-payment {
+      .shopping-needs {
+        margin-left: pxToRem(30px);
+        margin-top: pxToRem(152px);
+        .merchant-number {
+        }
+        .for-all {
+          font-family: Inter;
+          font-size: pxToRem(42px);
+          font-weight: 600;
+          line-height: pxToRem(50.83px);
+          text-align: left;
+          color: #FFFFFF;
+        }
+        .no-key {
+          font-family: Inter;
+          font-size: pxToRem(18px);
+          font-weight: 500;
+          line-height: pxToRem(21.78px);
+          color: #FFFFFF;
+          opacity: 0.5;
+        }
+        .create-top {
+          font-family: Inter;
+          font-size: pxToRem(16px);
+          font-weight: 500;
+          line-height: pxToRem(19.37px);
+          text-align: left;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+}
