@@ -18,10 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "official-common": ["./official-common/dist/index.js"]
-    }
+    "jsx": "react-jsx"
   },
   "include": [
     "src"

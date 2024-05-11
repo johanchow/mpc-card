@@ -1,0 +1,6 @@
+$base-width: 750;
+@function pxToVw($px) {
+  // 转成vw值
+  @return ($px / $base-width) * 100vw;
+}
+

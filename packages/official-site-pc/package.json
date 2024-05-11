@@ -1,6 +1,6 @@
 {
   "name": "official-site-pc",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "official-common": "1.0.0"
