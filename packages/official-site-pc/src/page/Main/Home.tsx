@@ -1,7 +1,9 @@
 import React from "react";
 import AutoScroll from "../../component/AutoScroll";
+import * as Comp from 'official-common';
 import './Home.scss';
 
+console.log('Comp: ', Comp);
 const items = [{
   img: 'https://via.placeholder.com/150',
 }, {

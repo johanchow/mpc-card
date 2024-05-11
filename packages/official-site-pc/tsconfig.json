@@ -20,7 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "official-common": ["./official-common/dist/index.js"]
+      "official-common": ["./official-common/dist"]
     }
   },
   "include": [

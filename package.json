@@ -9,8 +9,10 @@
   "main": "index.js",
   "scripts": {
     "install": "lerna bootstrap",
+    "postinstall": "npm run build",
     "dev-h5": "cd ./packages/official-site-h5 && npm run start",
     "dev-pc": "cd ./packages/official-site-pc && npm run start",
+    "dev-common": "cd ./packages/official-common && npm run start",
     "build": "lerna run --stream --sort build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,7 +32,9 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "fs-extra": "^11.2.0",
     "lerna": "^3.22.1",
+    "path": "^0.12.7",
     "sass": "^1.77.0",
     "webpack-cli": "^5.1.4"
   },
