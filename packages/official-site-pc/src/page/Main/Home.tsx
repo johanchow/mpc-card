@@ -1,5 +1,5 @@
 import React from "react";
-import AutoScroll from "../../component/AutoScroll";
+import { AutoScroll } from "official-common";
 import './Home.scss';
 import GetCardButton from "../../component/GetCardButton";
 

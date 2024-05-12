@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './AutoScroll.scss';
+import React, { useState } from 'react';
+import './AutoScroll.css';
 
 type AutoScrollListProps = {
   items: {

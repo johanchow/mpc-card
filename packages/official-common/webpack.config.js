@@ -2,10 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/sdk.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
+    library: 'common',
+    libraryTarget: 'umd',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -57,6 +59,11 @@ module.exports = {
     },
     compress: true,
     port: 9000,
+  },
+  externals: {
+    // 这里可以定义一些外部依赖，这样你的库就不会把这些依赖打包进去，而是通过用户环境中的依赖来使用这些库
+    'react': 'react',
+    'react-dom': 'react-dom'
   },
   plugins: [
     new HtmlWebpackPlugin({
