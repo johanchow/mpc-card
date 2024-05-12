@@ -24,12 +24,20 @@ const AutoScrollList: React.FC<AutoScrollListProps> = ({ items, duration }) => {
       >
         {items.map((item, index) => (
           <div key={index} className="auto-scroll-list-item"
-            style={{ backgroundImage: `url(${item.img})` }}
+            style={{
+              backgroundImage: `url(${item.img})`,
+              height: item.height ? `${item.height}` : undefined,
+              width: item.width ? `${item.width}` : undefined,
+            }}
           />
         ))}
         {items.map((item, index) => (
           <div key={index} className="auto-scroll-list-item"
-            style={{ backgroundImage: `url(${item.img})` }}
+            style={{
+              backgroundImage: `url(${item.img})`,
+              height: item.height ? `${item.height}` : undefined,
+              width: item.width ? `${item.width}` : undefined,
+            }}
           />
         ))}
       </div>

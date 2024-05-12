@@ -7,49 +7,163 @@
   align-items: flex-start;
   .home-body-zone {
     border-left: 1px solid #383838;
-    border-right: 1px solid #cd8787;
-    width: pxToRem(1520px);
+    border-right: 1px solid #383838;
+    width: pxToRem(1120px);
+    padding: 0 pxToRem(30px);
+    .tip-text {
+      opacity: 0.4;
+      font-weight: 500;
+      font-size: pxToRem(16px);
+      line-height: pxToRem(19px);
+    }
     .shopping-payment {
-      .shopping-needs {
-        margin-left: pxToRem(30px);
-        margin-top: pxToRem(152px);
-        .merchant-number {
+      margin-top: pxToRem(152px);
+      width: pxToRem(715px);
+      height: pxToRem(207px);
+      @include background-image-cover('./image/shopping-need.png');
+    }
+    .make-payment {
+      margin-top: pxToRem(251px);
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: pxToRem(38px);
+      line-height: pxToRem(46px);
+      text-align: center;
+      color: #FFFFFF;
+      .tip-text {
+        margin-top: pxToRem(86px);
+      }
+    }
+    .two-good {
+      margin-top: pxToRem(144px);
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      .good-item {
+        margin: 0 pxToRem(15px);
+        width: pxToRem(460px);
+        height: pxToRem(259px);
+        &:first-of-type {
+          @include background-image-cover('./image/No-Annual-Fees.png');
         }
-        .for-all {
-          font-family: Inter;
-          font-size: pxToRem(42px);
-          font-weight: 600;
-          line-height: pxToRem(50.83px);
-          text-align: left;
-          color: #FFFFFF;
-        }
-        .no-key {
-          font-family: Inter;
-          font-size: pxToRem(18px);
-          font-weight: 500;
-          line-height: pxToRem(21.78px);
-          color: #FFFFFF;
-          opacity: 0.5;
-        }
-        .create-top {
-          font-family: Inter;
-          font-size: pxToRem(16px);
-          font-weight: 500;
-          line-height: pxToRem(19.37px);
-          text-align: left;
-          color: #FFFFFF;
+        &:nth-of-type(2) {
+          @include background-image-cover('./image/Automaic-Coversion.png');
         }
       }
     }
+    .earn-unlimited {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      position: relative;
+      margin-top: pxToRem(119px);
+      margin-bottom: pxToRem(30px);
+      .picture {
+        width: pxToRem(1060px);
+        height: pxToRem(400px);
+        @include background-image-cover('./image/Earn-Unlimited.jpg');
+      }
+      .button {
+        position: absolute;
+        right: pxToRem(80px);
+        bottom: pxToRem(40px);
+      }
+    }
     .supported-merchants {
-      width: 100%;
-      height: pxToRem(110px);
+      margin-top: pxToRem(180px);
+      margin-bottom: pxToRem(100px);
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: pxToRem(40px);
+      line-height: pxToRem(48px);
+      text-align: center;
+      color: #FFFFFF;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      .card-integration {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: pxToRem(10px) pxToRem(12px);
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.01);
+        box-shadow: inset 0px -2px 10px rgba(255, 255, 255, 0.2);
+        border-radius: pxToRem(40px);
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: pxToRem(16px);
+        line-height: pxToRem(19px);
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: #FFFFFF;
+        width: pxToRem(217px);
+        margin-bottom: pxToRem(52px);
+      }
+      .auto-scroll-wrapper {
+        width: 100%;
+        height: pxToRem(110px);
+        margin-top: pxToRem(96px);
+      }
+      .tip-text {
+        margin-top: pxToRem(100px);
+      }
+    }
+    .order-card {
+      margin-top: pxToRem(120px);
+      margin-bottom: pxToRem(100px);
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      padding: 0 pxToRem(20px);
+      .order-card-groups {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        .group-item {
+          width: pxToRem(320px);
+          height: pxToRem(110px);
+          &:first-of-type {
+            @include background-image-cover('./image/order-card-1.png');
+          }
+          &:nth-of-type(2) {
+            @include background-image-cover('./image/order-card-2.png');
+          }
+          &:nth-of-type(3) {
+            @include background-image-cover('./image/order-card-3.png');
+          }
+        }
+      }
+      .order-card-main {
+        margin-top: pxToRem(26px);
+        // width: pxToRem(1020px);
+        height: pxToRem(264px);
+        @include background-image-cover('./image/order-card-main.jpg');
+        position: relative;
+        border-radius: pxToRem(16px);
+        .get-card-button {
+          position: absolute;
+          left: pxToRem(30px);
+          bottom: pxToRem(20px);
+        }
+      }
     }
     .frequently-questions {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
+      margin-bottom: pxToRem(100px);
       .questions-title {
         font-family: Inter;
         font-size: pxToRem(40px);
@@ -75,13 +189,12 @@
         justify-content: center;
         align-items: flex-start;
         margin: pxToRem(35px) auto 0;
-        padding: 0 pxToRem(110px);
         .question-item {
           display: flex;
           flex-flow: row nowrap;
           justify-content: space-between;
           align-items: center;
-          width: pxToRem(460px);
+          width: pxToRem(430px);
           height: pxToRem(85px);
           border-radius: pxToRem(16px);
           border: 1px solid #222222;
@@ -93,6 +206,25 @@
             margin-left: 8px;
           }
         }
+      }
+    }
+    .social-media {
+      margin-top: pxToRem(180px);
+      margin-bottom: pxToRem(100px);
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      .picture {
+        width: pxToRem(1060px);
+        height: pxToRem(378px);
+        @include background-image-cover('./image/social-media.png');
+      }
+      .button {
+        position: absolute;
+        right: pxToRem(94px);
+        bottom: pxToRem(0px);
       }
     }
     .copyright {
@@ -108,6 +240,9 @@
       text-align: left;
       color: #FFFFFF;
       opacity: 0.5;
+    }
+    .section-dividing-line {
+      transform: translateX(-25.5rem);
     }
   }
 }

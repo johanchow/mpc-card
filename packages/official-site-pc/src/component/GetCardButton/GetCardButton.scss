@@ -3,6 +3,7 @@
 .get-card-button {
   width: pxToRem(277px);
   height: pxToRem(35px);
+  cursor: pointer;
   border-radius: pxToRem(20px);
   opacity: 0px;
   background: linear-gradient(270deg, #FFFFFF 0%, #AAAAAA 100%);
