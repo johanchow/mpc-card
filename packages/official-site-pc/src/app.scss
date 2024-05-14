@@ -27,3 +27,13 @@
   background: #383838;
 }
 
+// 区域标题字
+.section-title-font {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: pxToRem(40px);
+  line-height: pxToRem(48px);
+  color: #FFFFFF;
+}
+

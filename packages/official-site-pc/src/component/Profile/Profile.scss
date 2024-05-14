@@ -1,0 +1,13 @@
+@import '../../common';
+
+.profile-entry,
+.profile-close {
+  width: pxToRem(48px);
+  height: pxToRem(46px);
+}
+.profile-entry {
+  @include background-image-cover('./image/profile-entry.png');
+}
+.profile-close {
+  @include background-image-cover('./image/profile-close.png');
+}
