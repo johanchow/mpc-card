@@ -3,11 +3,11 @@
 .login-register-body {
   margin-top: pxToRem(152px);
   margin-left: pxToRem(1268px);
-  width: pxToRem(452px);
+  width: pxToRem(460px);
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
   .border-line {
     width: 100%;
     height: 2px;
@@ -32,6 +32,7 @@
     }
   }
   .section-title-font {
+    text-align: center;
     margin: pxToRem(30px) 0 pxToRem(20px);
   }
   .login-form {
@@ -39,17 +40,37 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
+    gap: pxToRem(10px);
+    .form-field-row {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: pxToRem(8px);
+      .form-field {
+        flex-grow: 1;
+      }
+    }
     .form-field {
       width: 100%;
       box-sizing: border-box;
       height: pxToRem(50px);
       border: 1px solid #333333;
       border-radius: pxToRem(5px);
+      background-color: #000000;
+      color: #FFFFFF;
+      font-weight: 700;
     }
     .submit-button {
       background: #FFFFFF;
       color: #000000;
+    }
+    .error-message {
+      color: #bf1650;
+      margin: 0;
+      &::before {
+        display: inline;
+        content: "⚠ ";
+      };
     }
   }
   .resend-tip {
@@ -83,5 +104,6 @@
     font-weight: 700;
     font-size: pxToRem(16px);
     line-height: pxToRem(19px);
+    cursor: pointer;
   }
 }
