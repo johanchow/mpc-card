@@ -6,8 +6,8 @@
   height: pxToRem(46px);
 }
 .profile-entry {
-  // @include background-image-cover('image/profile-entry.png');
+  // @include background-image-cover('./image/profile-entry.png');
 }
 .profile-close {
-  // @include background-image-cover('image/profile-close.png');
+  // @include background-image-cover('./image/profile-close.png');
 }

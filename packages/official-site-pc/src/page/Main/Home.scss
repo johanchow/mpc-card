@@ -242,7 +242,7 @@
       opacity: 0.5;
     }
     .section-dividing-line {
-      transform: translateX(-25.5rem);
+      margin-left: calc((70rem - 100vw) / 2);
     }
   }
 }

@@ -38,6 +38,8 @@ const Register: React.FC = () => {
               required: " is required.",
             })} />
           </div>
+          {errors?.firstname?.type === "required" && <p className="error-message">First Name is required</p>}
+          {errors?.lastname?.type === "required" && <p className="error-message">Last Name is required</p>}
           <input className="form-field" placeholder="name@example.com" {...register("email", {
             required: "email is required.",
             pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
