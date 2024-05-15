@@ -1,12 +1,15 @@
-import { lazy } from "react";
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "./page/Main";
 import Home from "./page/Main/Home";
+import OnbToken from "./page/Main/OnbToken";
+import Identity from "./page/Identity";
+import Login from "./page/Identity/Login";
+import Register from "./page/Identity/Register";
 
-const OnbToken = lazy(() => import('./page/Main/OnbToken'));
-const Identity = lazy(() => import('./page/Identity'));
-const Login = lazy(() => import('./page/Identity/Login'));
-const Register = lazy(() => import('./page/Identity/Register'));
+// const OnbToken = lazy(() => import('./page/Main/OnbToken'));
+// const Identity = lazy(() => import('./page/Identity'));
+// const Login = lazy(() => import('./page/Identity/Login'));
+// const Register = lazy(() => import('./page/Identity/Register'));
 
 const router = createBrowserRouter([
 	{
