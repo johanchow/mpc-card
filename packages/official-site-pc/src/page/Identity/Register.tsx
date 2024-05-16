@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { getVerifyCode, registerEmail } from 'official-common';
+import { noticeSendVerifyCode, postRegister, useIdentityStore } from 'official-common';
 import './Identity.scss'
 
 enum RegisterStep {
@@ -10,18 +10,26 @@ enum RegisterStep {
   verified = 3,
 };
 const Register: React.FC = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [step, setStep] = useState<RegisterStep>(RegisterStep.starting);
+  const { setIdentity } = useIdentityStore();
+  const [email, setEmail] = useState<string>('');
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const jumpLogin = () => {
     navigate('/identity');
   };
   const onSubmitEmail = async (data: Record<string, string>) => {
-    await getVerifyCode();
+    await noticeSendVerifyCode(data);
+    setEmail(data.email);
     setStep(RegisterStep.emailed);
   };
   const onSubmitRegisterCode = async (data: Record<string, string>) => {
-    await registerEmail();
+    const identity = await postRegister({
+      ...data,
+      email,
+    });
+    setIdentity(identity);
+    alert('注册成功，跳转卡包页');
   };
   return <div className="login-register-body">
     <div className="border-line"></div>

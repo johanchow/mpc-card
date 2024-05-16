@@ -1,9 +1,12 @@
 import AutoScroll from './component/AutoScroll';
-import { getVerifyCode, login } from './api/identity';
+import { useIdentityStore } from './store/identity';
+import { noticeSendVerifyCode, postLogin, postRegister } from './api/identity';
 
 export {
   AutoScroll,
-  getVerifyCode,
-  login,
+  noticeSendVerifyCode,
+  postLogin,
+  postRegister,
+  useIdentityStore,
 };
 

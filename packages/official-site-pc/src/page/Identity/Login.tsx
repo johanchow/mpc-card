@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { getVerifyCode, login } from 'official-common';
+import { noticeSendVerifyCode, postLogin, useIdentityStore } from 'official-common';
 import './Identity.scss'
 
 enum LoginStep {
@@ -14,6 +14,8 @@ type LoginProps = {
   email?: string;
 };
 const Login: React.FC<LoginProps> = (props) => {
+  const [email, setEmail] = useState<string>('');
+  const { setIdentity } = useIdentityStore();
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   // 根据是否有email来判断从邮箱开始登录，还是已经注册过要开始验证码登录
   const [step, setStep] = useState<LoginStep>(props.email ? LoginStep.emailed : LoginStep.starting);
@@ -23,11 +25,17 @@ const Login: React.FC<LoginProps> = (props) => {
   };
   const onSubmitEmail = async (data: Record<string, string>) => {
     console.log('submit data: ', data);
-    await getVerifyCode(data);
+    await noticeSendVerifyCode(data);
+    setEmail(data.email);
     setStep(LoginStep.emailed);
   };
   const onSubmitVerifyCode = async (data: Record<string, string>) => {
-    await login(data);
+    const identity = await postLogin({
+      ...data,
+      email,
+    });
+    setIdentity(identity);
+    alert('登录成功，跳转卡包页');
   };
   return <div className="login-register-body">
     <div className="border-line"></div>

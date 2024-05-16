@@ -40,9 +40,13 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-      var fontSizePx = document.body.clientWidth / 1920 * 16 + 'px';
-      document.body.style.fontSize = fontSizePx;
-      document.documentElement.style.fontSize = fontSizePx;
+      function setFontSize() {
+        var fontSizePx = document.body.clientWidth / 1920 * 16 + 'px';
+        document.body.style.fontSize = fontSizePx;
+        document.documentElement.style.fontSize = fontSizePx;
+      };
+      setFontSize();
+      window.addEventListener('resize', setFontSize);
     </script>
   </body>
 </html>

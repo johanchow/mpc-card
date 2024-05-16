@@ -14,7 +14,7 @@ const AutoScrollList: React.FC<AutoScrollListProps> = ({ items, duration }) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <div className="auto-scroll-list" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+    <div className="auto-scroll-list" /*>onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} */>
       <div
         className="auto-scroll-list-inner"
         style={{

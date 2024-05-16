@@ -117,13 +117,13 @@ const QaList: React.FC<{qas: Qa[]}> = (prop) => {
   var secondHalf = prop.qas.slice(midIndex);
   return <>
     <div className="question-item-list">{
-      firstHalf.map((qa) => {
-        return <QaItem {...qa} />
+      firstHalf.map((qa, index) => {
+        return <QaItem {...qa} key={index} />
       })
     }</div>
     <div className="question-item-list">{
-      secondHalf.map((qa) => {
-        return <QaItem {...qa} />
+      secondHalf.map((qa, index) => {
+        return <QaItem {...qa} key={index} />
       })
     }</div>
   </>

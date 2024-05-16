@@ -1,29 +1,61 @@
-import axios from 'axios';
+import { ajax } from './ajax';
+import type { IdentityState } from '../store/identity';
 
-const getVerifyCode = async (data: Record<string, string>) => {
+const noticeSendVerifyCode = async (data: Record<string, string>): Promise<boolean> => {
   console.log('start verify code: ', data);
-  const resp = await axios.post('//api.onlycoin.cc/SendEmail', {
+  await ajax({
+    url: '//api.onlycoin.cc/SendEmail',
+    method: 'POST',
     data: {
       email: data.email,
     }
   });
-  console.log('SendEmail resp: ', resp);
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
+  return true;
 };
 
-const login = async () => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
+const postLogin = async (data: Record<string, string>): Promise<IdentityState['identity']> => {
+  const identity = await ajax<IdentityState['identity']>({
+    url: '//api.onlycoin.cc/user_login',
+    method: 'POST',
+    data: {
+      email: data.email,
+      code: data.code,
+    }
   });
+  return identity;
 };
 
-const registerEmail = async () => {
+const postRegister = async (data: Record<string, string>): Promise<IdentityState['identity']> => {
+  const identity = await ajax<IdentityState['identity']>({
+    url: '//api.onlycoin.cc/user_login',
+    method: 'POST',
+    data: {
+      email: data.email,
+      code: data.code,
+    }
+  });
+  return identity;
+};
+
+const getIdentityInfo = async (token: string, id: string, email: string): Promise<IdentityState['identity']> => {
+  const identity = await ajax<IdentityState['identity']>({
+    url: '//api.onlycoin.cc/pay/UserInfo',
+    method: 'POST',
+    headers: {
+      token,
+      uid: id,
+      encrypt: 1,
+    },
+    data: {
+      email,
+    }
+  });
+  return identity;
 };
 
 export {
-  getVerifyCode,
-  login,
-  registerEmail,
+  getIdentityInfo,
+  noticeSendVerifyCode,
+  postLogin,
+  postRegister,
 };
