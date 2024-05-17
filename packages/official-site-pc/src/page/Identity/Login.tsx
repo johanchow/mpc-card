@@ -4,11 +4,6 @@ import { useForm } from "react-hook-form";
 import { noticeSendVerifyCode, postLogin, useIdentityStore } from 'official-common';
 import './Identity.scss'
 
-enum LoginStep {
-  starting = 1,
-  emailed = 2,
-  verified = 3,
-};
 type LoginProps = {
   /* 正在登录的邮箱 */
   email?: string;
@@ -16,35 +11,44 @@ type LoginProps = {
 const Login: React.FC<LoginProps> = (props) => {
   const [email, setEmail] = useState<string>('');
   const { setIdentity } = useIdentityStore();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   // 根据是否有email来判断从邮箱开始登录，还是已经注册过要开始验证码登录
-  const [step, setStep] = useState<LoginStep>(props.email ? LoginStep.emailed : LoginStep.starting);
   const navigate = useNavigate();
   const jumpRegister = () => {
     navigate('/identity/register');
   };
   const onSubmitEmail = async (data: Record<string, string>) => {
+    if (isLoading) {
+      return;
+    }
+    setIsLoading(true);
     console.log('submit data: ', data);
     await noticeSendVerifyCode(data);
     setEmail(data.email);
-    setStep(LoginStep.emailed);
+    setIsLoading(false);
   };
   const onSubmitVerifyCode = async (data: Record<string, string>) => {
+    if (isLoading) {
+      return;
+    }
+    setIsLoading(true);
     const identity = await postLogin({
       ...data,
       email,
     });
     setIdentity(identity);
     alert('登录成功，跳转卡包页');
+    setIsLoading(false);
   };
   return <div className="login-register-body">
     <div className="border-line"></div>
     <span className="section-title-font">Login to your account</span>
     <span className="tip-text">Enter your email below to login to your account</span>
     {
-      step === LoginStep.starting
+      !email
       ? <form className="login-form" onSubmit={handleSubmit(onSubmitEmail)}>
-          <input className="form-field" placeholder="name@example.com" {...register("email", {
+          <input key="email" className="form-field" placeholder="name@example.com" {...register("email", {
             required: "email is required.",
             pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
           })} />
@@ -55,10 +59,10 @@ const Login: React.FC<LoginProps> = (props) => {
           <input type='submit' className="submit-button action-button" value="Login with Email" />
         </form>
       : <form className="login-form" onSubmit={handleSubmit(onSubmitVerifyCode)}>
-          <input className="form-field" placeholder="ENTER YOUR 6-DIGIT CODE" {...register("code", {
+          <input key='code' className="form-field" placeholder="ENTER YOUR 6-DIGIT CODE" {...register("code", {
             required: "code is required.",
             pattern: /^\d{6}$/i,
-          })} />
+          })} autoComplete="off" />
           {errors?.code?.type === "required" && <p className="error-message">code is required</p>}
           {errors?.code?.type === "pattern" && (
             <p className="error-message">code must be 6 digit number</p>
