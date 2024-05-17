@@ -22,6 +22,16 @@ const items = [{
   height: itemHeight,
   width: itemWidth,
 }];
+const socialLinks = [{
+  name: 'X',
+  url: 'https://x.com/onlycoin_?t=WbLU28ZcKYhlH7iHU5qXBA&s=09',
+}, {
+  name: 'Blog',
+  url: '',
+}, {
+  name: 'Telegram',
+  url: 'https://t.me/onlycoincc',
+}];
 const questionAndAnswers: Qa[] = [{
     q: 'Why haven’t I still received my card?',
     a: 'Digital card issuance can take upto 30 minutes. Please contact us on Telegram if you are still pending a card.',
@@ -95,8 +105,18 @@ const Home = () => {
       </div>
       <div className="section-dividing-line"></div>
       <div className="social-media">
-        <div className="picture"></div>
-        <div className="button"><GetCardButton /></div>
+        <div className="picture">
+          <div className="social-links-wrapper">
+            <div className="title">Socials</div>
+            <div className="social-links">
+              {socialLinks.map(item => {
+                return <a key={item.name} className="tip-text"
+                  href={item.url} target='_blank' rel="noreferrer">{item.name}</a>
+              })}
+            </div>
+          </div>
+          <div className="button"><GetCardButton /></div>
+        </div>
       </div>
       <div className="section-dividing-line"></div>
       <div className="copyright">

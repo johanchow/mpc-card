@@ -243,6 +243,36 @@
         width: pxToRem(1060px);
         height: pxToRem(378px);
         @include background-image-cover('./image/social-media.png');
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        .social-links-wrapper {
+          margin-left: -30px;
+          .title {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: pxToRem(20px);
+            line-height: pxToRem(24px);
+            color: #FFFFFF;
+            margin-bottom: pxToRem(40px);
+          }
+          .social-links {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: flex-start;
+            gap: pxToRem(40px);
+            > a {
+              font-family: 'Inter';
+              font-style: normal;
+              font-weight: 700;
+              font-size: pxToRem(18px);
+              color: #fff;
+              opacity: 0.5;
+              text-decoration:none;
+            }
+          }
+        }
       }
       .button {
         position: absolute;
