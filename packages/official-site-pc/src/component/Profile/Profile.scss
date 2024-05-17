@@ -6,8 +6,9 @@
   height: pxToRem(46px);
 }
 .profile-entry {
-  // @include background-image-cover('./image/profile-entry.png');
+  @include background-image-cover('~./image/profile-entry.png');
 }
 .profile-close {
-  // @include background-image-cover('./image/profile-close.png');
+  // 使用~前缀表示这是一个模块路径
+  @include background-image-cover('~./image/profile-close.png');
 }

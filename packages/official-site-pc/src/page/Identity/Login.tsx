@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { noticeSendVerifyCode, postLogin, useIdentityStore } from 'official-common';
+import { m, noticeSendVerifyCode, postLogin, useIdentityStore } from 'official-common';
 import './Identity.scss'
 
 type LoginProps = {
@@ -38,6 +38,7 @@ const Login: React.FC<LoginProps> = (props) => {
       email,
     });
     setIdentity(identity);
+    m.success('Login Success');
     alert('登录成功，跳转卡包页');
     setIsLoading(false);
   };

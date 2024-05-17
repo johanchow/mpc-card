@@ -1,0 +1,29 @@
+.message-modal {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 60vw;
+  min-width: 200px;
+  padding: 20px;
+  position: fixed;
+  top: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.message-modal .type-logo {
+  margin-bottom: 20px;
+}
+
+.message-modal .message-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+

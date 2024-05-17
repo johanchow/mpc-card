@@ -1,4 +1,5 @@
 import { ajax } from './ajax';
+import m from '../component/Message';
 import type { IdentityState } from '../store/identity';
 
 const noticeSendVerifyCode = async (data: Record<string, string>): Promise<boolean> => {
@@ -32,6 +33,7 @@ const postLogin = async (data: Record<string, string>): Promise<IdentityState['i
     firstName: resp.FirstName,
     lastName: resp.LastName,
   };
+  m.success('登录成功');
   return identity;
 };
 
@@ -53,6 +55,7 @@ const postRegister = async (data: Record<string, string>): Promise<IdentityState
     firstName: resp.FirstName,
     lastName: resp.LastName,
   };
+  m.success('注册成功');
   return identity;
 };
 

@@ -18,7 +18,7 @@ const getTextOfMsgId = (msgId: number) => {
 //   const resp = await axios.request(config);
 //   const data = resp.data as AjaxResp<T>;
 //   if (data.msgId !== 2000) {
-//     alert(`接口报错: ${data.msgId}`);
+//     console.error(`接口报错: ${data.msgId}`);
 //     throw new CustomError({
 //       code: data.msgId,
 //       message: getTextOfMsgId(data.msgId),
