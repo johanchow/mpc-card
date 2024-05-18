@@ -1,30 +1,49 @@
 import { ajax } from './ajax';
 import m from '../component/Message';
 import type { IdentityState } from '../store/identity';
+import CustomError from '../util/custom-error';
 
+const defaultErrorMsg = 'network or server error, please try later';
 const noticeSendVerifyCode = async (data: Record<string, string>): Promise<boolean> => {
   console.log('开始请求发送验证码: ', data);
-  const resp = await ajax({
-    url: '//api.onlycoin.cc/SendEmail',
-    method: 'POST',
-    data: {
-      email: data.email,
-    }
-  });
+  let resp;
+  try {
+    resp = await ajax({
+      url: '//api.onlycoin.cc/SendEmail',
+      method: 'POST',
+      data: {
+        email: data.email,
+      }
+    });
+  } catch (e) {
+    console.error('验证码请求异常: ', JSON.stringify(e));
+    console.log('e instanceof CustomError: ', e instanceof CustomError);
+    const errorMgs = e instanceof CustomError ? e.message : defaultErrorMsg;
+    m.error(errorMgs);
+    return false;
+  }
   console.log('完成请求发送验证码: ', resp);
   return true;
 };
 
 const postLogin = async (data: Record<string, string>): Promise<IdentityState['identity']> => {
   console.log('开始发送登录: ', data);
-  const resp = await ajax<Record<string, string>>({
-    url: '//api.onlycoin.cc/user_login',
-    method: 'POST',
-    data: {
-      email: data.email,
-      code: data.code,
-    }
-  });
+  let resp;
+  try {
+    resp = await ajax<Record<string, string>>({
+      url: '//api.onlycoin.cc/user_login',
+      method: 'POST',
+      data: {
+        email: data.email,
+        code: data.code,
+      }
+    });
+  } catch (e) {
+    console.error('登录请求异常: ', JSON.stringify(e));
+    const errorMgs = e instanceof CustomError ? e.message : defaultErrorMsg;
+    m.error(errorMgs);
+    return;
+  }
   console.log('收到登录响应: ', resp);
   const identity: IdentityState['identity'] = {
     id: resp.Id,
@@ -39,14 +58,22 @@ const postLogin = async (data: Record<string, string>): Promise<IdentityState['i
 
 const postRegister = async (data: Record<string, string>): Promise<IdentityState['identity']> => {
   console.log('开始发送注册: ', data);
-  const resp = await ajax<Record<string, string>>({
-    url: '//api.onlycoin.cc/user_login',
-    method: 'POST',
-    data: {
-      email: data.email,
-      code: data.code,
-    }
-  });
+  let resp: Record<string, string>;
+  try {
+    resp = await ajax<Record<string, string>>({
+      url: '//api.onlycoin.cc/user_login',
+      method: 'POST',
+      data: {
+        email: data.email,
+        code: data.code,
+      }
+    });
+  } catch (e) {
+    const errorMgs = e instanceof CustomError ? e.message : defaultErrorMsg;
+    console.error('注册请求异常: ', JSON.stringify(e));
+    m.error(errorMgs);
+    return;
+  }
   console.log('收到注册响应: ', resp);
   const identity: IdentityState['identity'] = {
     id: resp.Id,

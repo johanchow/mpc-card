@@ -31,8 +31,11 @@ const Register: React.FC = () => {
       ...data,
       email,
     });
-    setIdentity(identity);
     setIsLoading(false);
+    if (!identity) {
+      return;
+    }
+    setIdentity(identity);
     alert('注册成功，跳转卡包页');
   };
   return <div className="login-register-body">

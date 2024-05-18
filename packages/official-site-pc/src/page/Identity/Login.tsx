@@ -37,10 +37,10 @@ const Login: React.FC<LoginProps> = (props) => {
       ...data,
       email,
     });
+    setIsLoading(false);
     setIdentity(identity);
     m.success('Login Success');
     alert('登录成功，跳转卡包页');
-    setIsLoading(false);
   };
   return <div className="login-register-body">
     <div className="border-line"></div>

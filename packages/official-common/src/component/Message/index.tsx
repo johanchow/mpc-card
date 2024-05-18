@@ -3,26 +3,34 @@ import ReactDOM from 'react-dom/client';
 import Message, { MessageProp } from "./Message";
 
 type Instance = {
-  add: (messageItem: MessageProp) => void;
+  inited: boolean;
+  initedMessages: MessageProp[];
+  add: (message: MessageProp) => void;
 };
-let instance: Instance;
+const instance: Instance = {
+  inited: false,
+  initedMessages: [],
+  add: () => {},
+};
 const success = (text: string, duration?: number) => {
-  if (instance) {
+  if (instance.inited) {
     instance.add({ type: 'success', text, duration });
     return;
   }
+  instance.initedMessages.push({ type: 'success', text, duration });
   startRender();
 };
 const error = (text: string, duration?: number) => {
-  if (instance) {
+  if (instance.inited) {
     instance.add({ type: 'error', text, duration });
     return;
   }
+  instance.initedMessages.push({ type: 'error', text, duration });
   startRender();
 };
 
 const startRender = () => {
-  instance = { add: () => {} };
+  instance.inited = true;
   const div = document.createElement('div');
   document.body.appendChild(div);
   const root = ReactDOM.createRoot(div);
@@ -33,7 +41,7 @@ const startRender = () => {
 
 const MessageList: React.FC<{ instance: Instance }> = (prop) => {
   const { instance } = prop;
-  const [messages, setMessages] = useState<MessageProp[]>([]);
+  const [messages, setMessages] = useState<MessageProp[]>(instance.initedMessages);
   useEffect(() => {
     if (instance) {
       instance.add = (message) => {
