@@ -1,10 +1,16 @@
-import React from "react";
-import ReactDOM from 'react-dom/client';
+import AutoScroll from './component/AutoScroll';
+import IdentityRefresher from './component/IdentityRefresher';
+import m from './component/Message';
+import { useIdentityStore } from './store/identity';
+import { noticeSendVerifyCode, postLogin, postRegister } from './api/identity';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-  </React.StrictMode>
-);
+export {
+  AutoScroll,
+  IdentityRefresher,
+  m,
+  noticeSendVerifyCode,
+  postLogin,
+  postRegister,
+  useIdentityStore,
+};
+
