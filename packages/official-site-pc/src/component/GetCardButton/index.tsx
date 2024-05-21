@@ -16,6 +16,7 @@ const GetCardButton: React.FC<GetCardButtonProps> = (props) => {
     } else {
       if (identity?.id) {
         navigate('/card/add');
+        return;
       }
       navigate('/identity/register');
     }

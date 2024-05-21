@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { noticeSendVerifyCode, postRegister, useIdentityStore } from 'official-common';
+import { m, noticeSendVerifyCode, postRegister, useIdentityStore } from 'official-common';
 import './Identity.scss'
 
 const Register: React.FC = () => {
@@ -36,7 +36,8 @@ const Register: React.FC = () => {
       return;
     }
     setIdentity(identity);
-    alert('注册成功，跳转卡包页');
+    m.success('Register Success');
+    navigate('/card/add');
   };
   return <div className="login-register-body">
     <div className="border-line"></div>

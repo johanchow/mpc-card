@@ -40,7 +40,7 @@ const Login: React.FC<LoginProps> = (props) => {
     setIsLoading(false);
     setIdentity(identity);
     m.success('Login Success');
-    alert('登录成功，跳转卡包页');
+    navigate('/card/add');
   };
   return <div className="login-register-body">
     <div className="border-line"></div>
