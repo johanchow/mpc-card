@@ -1,0 +1,18 @@
+@import '../../style/common.scss';
+
+.modal-mask {
+  position: fixed;
+  inset: 0;
+}
+
+.modal-wrapper {
+  margin: 0 auto;
+  min-width: 500px;
+  top: 100px;
+  position: relative;
+  .close-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

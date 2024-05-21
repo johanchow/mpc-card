@@ -1,0 +1,105 @@
+@import '../../../../official-common/src/style/common.scss';
+
+.card-open {
+  margin-top: pxToRem(152px);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: pxToRem(40px);
+  .card-info {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: pxToRem(15px);
+    .card-choose {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: pxToRem(20px);
+      .card-template {
+        position: relative;
+        width: pxToRem(430px);
+        height: pxToRem(230px);
+        @include background-image-cover('./image/card.png');
+        .card-type-logo {
+          width: pxToRem(52px);
+          height: pxToRem(31px);
+          position: absolute;
+          right: pxToRem(16px);
+          bottom: pxToRem(8px);
+          &.visa {
+            @include background-image-cover('./image/visa.png');
+          }
+          &.mastercard {
+            @include background-image-cover('./image/mastercard.png');
+          }
+        }
+      }
+      .choose-switch {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        .button {
+          /* Rectangle 199 */
+          box-sizing: border-box;
+          width: pxToRem(90px);
+          height: pxToRem(35px);
+          border-style: solid;
+          border-color: #525252;
+          cursor: pointer;
+          &.visa {
+            border-radius: 5px 0px 0px 5px;
+            border-width: 1px 0px 1px 1px;
+            @include background-image-cover('./image/visa.png');
+          }
+          &.mastercard {
+            @include background-image-cover('./image/mastercard.png');
+            border-width: 1px 1px 1px 0px;
+            border-radius: 0px 5px 5px 0px;
+          }
+          &.active {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+    .card-instruction {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: pxToRem(30px);
+      position: relative;
+      .card-instruction-icon {
+        width: pxToRem(430px);
+        height: pxToRem(27px);
+        cursor: pointer;
+        @include background-image-cover('./image/instruction.png');
+      }
+      .card-instruction-summary {
+        width: pxToRem(430px);
+        height: pxToRem(173px);
+        @include background-image-cover('./image/summary.png');
+      }
+      .instruction-detail {
+        position: absolute;
+        width: pxToRem(430px);
+        height: pxToRem(251px);
+        top: 0;
+        right: 0;
+        @include background-image-cover('./image/instruction-detail.png');
+        .close-icon {
+          position: absolute;
+          top: pxToRem(8px);
+          right: pxToRem(8px);
+          width: pxToRem(13px);
+          height: pxToRem(13px);
+        }
+      }
+    }
+  }
+}

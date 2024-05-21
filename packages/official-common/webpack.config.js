@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
+  // entry: './src/html-index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
@@ -31,6 +32,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader', // 将CSS插入到DOM中的<style>标签
+          'css-loader', // 解析CSS文件
+          'sass-loader', // 将SCSS文件编译为CSS
+        ],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,

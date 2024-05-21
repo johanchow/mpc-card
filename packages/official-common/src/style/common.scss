@@ -1,0 +1,44 @@
+$base-font-size: 16px;
+@function pxToRem($px) {
+  // 使用基本字体大小将像素值转换为 rem 值，并返回结果
+  @return $px / $base-font-size * 1rem;
+}
+
+@mixin background-image-cover($image-url) {
+  background-image: url($image-url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+$close-icon-size: 20px !default;
+$close-icon-line-width: 2px !default;
+$close-icon-color: black !default;
+@mixin close-icon {
+  position: relative;
+  width: $close-icon-size;
+  height: $close-icon-size;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: $close-icon-line-width;
+    width: 100%;
+    top: 50%;
+    background: $close-icon-color;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+.close-icon {
+  @include close-icon;
+}
+

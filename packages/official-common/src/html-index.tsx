@@ -1,17 +1,20 @@
-/*
- * @Description: 
- * @Date: 2024-05-18 22:13:06
- * @Author: zzrzhou
- * @LastEditors: zzrzhou
- * @LastEditTime: 2024-05-18 22:13:08
- */
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from 'react-dom/client';
+import Modal from './component/Modal';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const App = () => {
+  useEffect(() => {
+    Modal.show({
+      content: <div>content</div>,
+    });
+  }, []);
+  return <>App</>;
+};
 root.render(
   <React.StrictMode>
+    <App />
   </React.StrictMode>
 );

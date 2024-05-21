@@ -1,15 +1,7 @@
 @import '../../common';
 
-.home-page {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  .home-body-zone {
-    border-left: 1px solid #383838;
-    border-right: 1px solid #383838;
-    width: pxToRem(1120px);
-    padding: 0 pxToRem(30px);
+.intention-page {
+  .intention-body-zone {
     .tip-text {
       opacity: 0.4;
       font-weight: 500;

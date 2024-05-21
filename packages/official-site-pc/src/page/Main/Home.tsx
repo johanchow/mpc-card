@@ -53,9 +53,9 @@ const questionAndAnswers: Qa[] = [{
   }
 ];
 const Home = () => {
-  return <div className="home-page">
+  return <div className="intention-page">
     <div className="home-padding"></div>
-    <div className="home-body-zone">
+    <div className="intention-body-zone">
       <div className="shopping-payment">
       </div>
       <div className="make-payment">
