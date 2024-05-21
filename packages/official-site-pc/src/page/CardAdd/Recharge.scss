@@ -1,0 +1,8 @@
+@import '../../../../official-common/src/style/common.scss';
+
+.recharge-dialog {
+  background: #EDEDED;
+  border-radius: pxToRem(20px);
+  min-width: pxToRem(680px);
+  min-height: pxToRem(549px);
+}

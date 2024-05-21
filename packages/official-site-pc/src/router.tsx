@@ -5,9 +5,9 @@ import OnbToken from "./page/Main/OnbToken";
 import Identity from "./page/Identity";
 import Login from "./page/Identity/Login";
 import Register from "./page/Identity/Register";
-import Card from './page/Card';
-import AddCard from "./page/Card/AddCard";
-import ExtractCard from "./page/Card/ExtractCard";
+import Card from './page/CardEntry';
+import AddCard from "./page/CardAdd";
+import ExtractCard from "./page/CardExtract";
 
 // const OnbToken = lazy(() => import('./page/Main/OnbToken'));
 // const Identity = lazy(() => import('./page/Identity'));

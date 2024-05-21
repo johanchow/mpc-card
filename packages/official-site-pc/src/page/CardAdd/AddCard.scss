@@ -51,19 +51,24 @@
           border-style: solid;
           border-color: #525252;
           cursor: pointer;
-          &.visa {
-            border-radius: 5px 0px 0px 5px;
-            border-width: 1px 0px 1px 1px;
-            @include background-image-cover('./image/visa.png');
-          }
-          &.mastercard {
-            @include background-image-cover('./image/mastercard.png');
-            border-width: 1px 1px 1px 0px;
-            border-radius: 0px 5px 5px 0px;
-          }
           &.active {
             background-color: #fff;
           }
+          &.visa {
+            border-radius: 5px 0px 0px 5px;
+            border-width: 1px 0px 1px 1px;
+          }
+          // &.visa::after {
+          //   @include background-image-cover('./image/visa.png');
+          // }
+          &.mastercard {
+            // @include background-image-cover('./image/mastercard.png');
+            border-width: 1px 1px 1px 0px;
+            border-radius: 0px 5px 5px 0px;
+          }
+          // &.active {
+          //   background-color: #fff;
+          // }
         }
       }
     }

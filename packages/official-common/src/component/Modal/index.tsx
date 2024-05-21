@@ -68,7 +68,7 @@ const ModalList: React.FC<{
   </>;
 };
 
-const m = {
+const M = {
   show,
 };
-export default m;
+export default M;
