@@ -11,31 +11,38 @@ $base-font-size: 16px;
   background-position: center;
 }
 
-$close-icon-size: 20px !default;
+$close-icon-size: 24px !default;
 $close-icon-line-width: 2px !default;
 $close-icon-color: black !default;
+$close-icon-padding: 4px !default;
 @mixin close-icon {
-  position: relative;
   width: $close-icon-size;
   height: $close-icon-size;
+  position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box; // 确保填充不影响图标大小
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
+    width: calc(100% - #{$close-icon-padding * 2});
     height: $close-icon-line-width;
-    width: 100%;
-    top: 50%;
     background: $close-icon-color;
+    transform-origin: center;
   }
-
   &::before {
     transform: rotate(45deg);
   }
-
   &::after {
     transform: rotate(-45deg);
+  }
+  &:hover::before,
+  &:hover::after {
+    // background-color: red; // 鼠标悬停时的强调效果
   }
 }
 .close-icon {

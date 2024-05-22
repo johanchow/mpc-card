@@ -49,7 +49,7 @@ const MessageList: React.FC<{ instance: Instance }> = (prop) => {
         setMessages([...messages, message]);
       };
     }
-  }, []);
+  });
   const handleOnClose = (index: number) => {
     messages.splice(index, 1);
     setMessages([...messages]);

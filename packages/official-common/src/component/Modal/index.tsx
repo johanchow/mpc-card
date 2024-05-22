@@ -43,7 +43,6 @@ const ModalList: React.FC<{
   instance: Instance;
 }> = (props) => {
   const { instance } = props;
-  console.log('instantce: ', instance);
   const [modalPropsList, setModalPropsList] = useState<ModalProps[]>(
     instance.initedModalProps ? [instance.initedModalProps] : []
   );
@@ -55,7 +54,7 @@ const ModalList: React.FC<{
       // 先默认都是关最后modal。如果要精准控制，可以通过index来区分
       setModalPropsList(modalPropsList.slice(0, -1));
     };
-  }, []);
+  });
   return <>
     { modalPropsList.length > 0 ? <div className="modal-mask"></div> : <></> }
     { modalPropsList.map((modalProp) => {

@@ -42,7 +42,16 @@ const AddCard: React.FC = () => {
         }
       </div>
     </div>
-    <GetCardButton onClick={() => Modal.show({ content: <Recharge /> })} />
+    <GetCardButton onClick={() => Modal.show({
+      content: <Recharge />,
+      styles: {
+        width: `${680/16}rem`,
+        boxSizing: 'border-box',
+        padding: `${30/16}rem`,
+        background: '#EDEDED',
+        borderRadius: `${20/16}rem`,
+      }
+    })} />
   </div>
 };
 

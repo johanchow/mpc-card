@@ -1,8 +1,138 @@
 @import '../../../../official-common/src/style/common.scss';
 
+.flex-row-btw {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-col-stretch {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
 .recharge-dialog {
-  background: #EDEDED;
-  border-radius: pxToRem(20px);
-  min-width: pxToRem(680px);
-  min-height: pxToRem(549px);
+  // padding: pxToRem(30px);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: pxToRem(20px);
+  line-height: pxToRem(24px);
+  color: #828282;
+  .recharge-title {
+    color: #000000;
+  }
+  form {
+    position: relative;
+    .recharge-form-body {
+      margin-top: pxToRem(20px);
+      background: #FFFFFF;
+      border-radius: pxToRem(12px);
+      padding: pxToRem(30px);
+      .field-label {
+        font-size: pxToRem(20px);
+        color: #828282;
+        .qr-code {
+          width: pxToRem(30px);
+          height: pxToRem(30px);
+          @include background-image-cover('./image/qrcode.png');
+        }
+      }
+      .field-input {
+        margin-top: pxToRem(30px);
+        background-color: #EDEDED;
+        padding: 0 pxToRem(20px);
+        input {
+          flex: 1;
+          border: none;
+          outline: none;
+          background-color: #EDEDED;
+          line-height: pxToRem(44px);
+          font-size: pxToRem(20px);
+          font-weight: 700;
+        }
+        .recharge-token-choose {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: flex-end;
+          align-items: center;
+          gap: pxToRem(8px);
+          color: #000000;
+          height: pxToRem(60px);
+          cursor: pointer;
+          img.choose-token-img {
+            width: pxToRem(27px);
+            height: pxToRem(27px);
+          }
+          img.choose-icon {
+            width: pxToRem(22px);
+            height: pxToRem(18px);
+          }
+        }
+      }
+      .error-message {
+        margin: pxToRem(8px) 0 0;
+        font-family: Inter;
+        font-size: pxToRem(16px);
+        font-weight: 500;
+        line-height: pxToRem(19.36px);
+      }
+      .evaluate-money {
+        position: relative;
+        margin-top: pxToRem(92px);
+        span {
+          position: absolute;
+          right: 0;
+          font-size: pxToRem(16px);
+        }
+      }
+    }
+    input[type='submit'] {
+      margin-top: pxToRem(70px);
+      height: pxToRem(60px);
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: Inter;
+      font-size: pxToRem(20px);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .token-list {
+      position: absolute;
+      top: pxToRem(30px);
+      right: pxToRem(44px);
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: pxToRem(8px) pxToRem(12px);
+      border-radius: pxToRem(12px);
+      background: #EDEDED;
+      gap: pxToRem(12px);
+      box-shadow: 0px 22px 6px 0px #00000000;
+      .token-option {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: pxToRem(6px);
+        font-family: Inter;
+        font-size: pxToRem(18px);
+        font-weight: 700;
+        line-height: pxToRem(21.78px);
+        padding-right: pxToRem(4px);
+        cursor: pointer;
+        &:hover {
+          border-radius: pxToRem(16px);
+          background-color: #000000;
+          color: #FFFFFF;
+        }
+        img {
+          width: pxToRem(26px);
+          height: pxToRem(26px);
+        }
+      }
+    }
+  }
 }

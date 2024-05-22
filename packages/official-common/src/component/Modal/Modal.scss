@@ -1,5 +1,5 @@
 @import '../../style/common.scss';
-
+$modal-content-width: '500px';
 .modal-mask {
   position: fixed;
   inset: 0;
@@ -14,6 +14,7 @@
     position: relative;
     margin: 0 auto;
     top: pxToRem(284px);
+    width: $modal-content-width; // Add this line to set the width using a variable
     .close-icon {
       position: absolute;
       top: 0;
