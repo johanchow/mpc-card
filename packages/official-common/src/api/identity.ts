@@ -1,4 +1,4 @@
-import { ajax } from './ajax';
+import { ajaxOnlyCoin } from './ajax';
 import m from '../component/Message';
 import type { IdentityState } from '../store/identity';
 import CustomError from '../util/custom-error';
@@ -8,7 +8,7 @@ const noticeSendVerifyCode = async (data: Record<string, string>): Promise<boole
   console.log('开始请求发送验证码: ', data);
   let resp;
   try {
-    resp = await ajax({
+    resp = await ajaxOnlyCoin({
       url: '//api.onlycoin.cc/SendEmail',
       method: 'POST',
       data: {
@@ -30,7 +30,7 @@ const postLogin = async (data: Record<string, string>): Promise<IdentityState['i
   console.log('开始发送登录: ', data);
   let resp;
   try {
-    resp = await ajax<Record<string, string>>({
+    resp = await ajaxOnlyCoin<Record<string, string>>({
       url: '//api.onlycoin.cc/user_login',
       method: 'POST',
       data: {
@@ -60,7 +60,7 @@ const postRegister = async (data: Record<string, string>): Promise<IdentityState
   console.log('开始发送注册: ', data);
   let resp: Record<string, string>;
   try {
-    resp = await ajax<Record<string, string>>({
+    resp = await ajaxOnlyCoin<Record<string, string>>({
       url: '//api.onlycoin.cc/user_login',
       method: 'POST',
       data: {
@@ -88,7 +88,7 @@ const postRegister = async (data: Record<string, string>): Promise<IdentityState
 
 const getIdentityInfo = async (token: string, id: string, email: string): Promise<IdentityState['identity']> => {
   console.log(`开始请求获取用户信息: token=${token}, email=${email}`);
-  const identity = await ajax<IdentityState['identity']>({
+  const identity = await ajaxOnlyCoin<IdentityState['identity']>({
     url: '//api.onlycoin.cc/pay/UserInfo',
     method: 'POST',
     headers: {

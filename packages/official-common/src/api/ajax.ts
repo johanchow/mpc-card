@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import CustomError from '../util/custom-error';
 
-type AjaxResp<T = Record<string, any>> = {
+type AjaxOnlyCoinResp<T = Record<string, any>> = {
   code: number;
   msgId: number;
   data: T;
@@ -14,9 +14,9 @@ const getTextOfMsgId = (msgId: number) => {
   return msgIdToText[msgId];
 };
 
-const ajax = async <T = any>(config: AxiosRequestConfig): Promise<T> => {
+const ajaxOnlyCoin = async <T = any>(config: AxiosRequestConfig): Promise<T> => {
   const resp = await axios.request(config);
-  const data = resp.data as AjaxResp<T>;
+  const data = resp.data as AjaxOnlyCoinResp<T>;
   if (data.msgId !== 2000) {
     console.error(`接口报错: ${data.msgId}`);
     throw new CustomError({
@@ -28,7 +28,18 @@ const ajax = async <T = any>(config: AxiosRequestConfig): Promise<T> => {
   return data.data;
 };
 
-// const ajax = async <T = any>(config: AxiosRequestConfig): Promise<T> => {
+const ajaxCoingecko = async <T = any>(config: AxiosRequestConfig): Promise<T | undefined> => {
+  let resp;
+  try {
+    resp = await axios.request<T>(config);
+  } catch (e) {
+    console.error('请求Coingecko异常: ', JSON.stringify(e));
+    return undefined;
+  }
+  return resp.data;
+};
+
+// const ajaxOnlyCoin = async <T = any>(config: AxiosRequestConfig): Promise<T> => {
 //   if (config.url?.includes('user_login')) {
 //     return {
 //       "Id": 772214432075776,
@@ -57,8 +68,9 @@ const ajax = async <T = any>(config: AxiosRequestConfig): Promise<T> => {
 // }
 
 export type {
-  AjaxResp,
+  AjaxOnlyCoinResp,
 };
 export {
-  ajax,
+  ajaxCoingecko,
+  ajaxOnlyCoin,
 };
