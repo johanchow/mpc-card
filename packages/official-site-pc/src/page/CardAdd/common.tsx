@@ -3,6 +3,9 @@ import usdcImage from './image/usdc.png';
 import solImage from './image/solana.png';
 import usdtImage from './image/usdt.png';
 import btcImage from './image/btc.png';
+import bscImage from './image/bsc.png';
+import tronImage from './image/tron.png';
+import okImage from './image/ok.png';
 
 enum TokenName {
   ETH = 'ETH',
@@ -33,8 +36,31 @@ const supportedTokens = [{
   name: TokenName.BTC,
 }];
 
+const supportedChains = [{
+  name: 'Ethereum',
+  id: 'eth',
+  img: ethImage,
+}, {
+  name: 'Solana',
+  id: 'sol',
+  img: solImage,
+}, {
+  id: 'ok',
+  name: 'X Layer',
+  img: okImage,
+}, {
+  id: 'bsc',
+  name: 'BNB Chain',
+  img: bscImage,
+}, {
+  id: 'trx',
+  name: 'Tron',
+  img: tronImage,
+}];
+
 export {
 	TokenName,
 	supportedTokens,
+  supportedChains,
 };
 

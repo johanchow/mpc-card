@@ -66,7 +66,7 @@ const ajaxCoingecko = async <T = any>(config: AxiosRequestConfig): Promise<T | u
 //     } as T;
 //   } else if (config.url?.includes('user_wallet_addr')) {
 //     return {
-//       bsc: "0x3fasdf323fadsf3r2fsaf32fasdf3",
+//       bsc: "0x1LBcaCyS7amCx4Be7T19zJfDfnC75DG2LE",
 //       eth: "0xaadsf2e2e32vdv3vad3vcva3v",
 //       ok: "0xadsf93k0kda9j3q3223vxwfa3vv23",
 //       sol: "0xzxvxzcvbner4v2vasdf32b32avb",

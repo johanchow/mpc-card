@@ -18,14 +18,14 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    gap: pxToRem(6px);
+    gap: pxToRem(4px);
     font-family: Inter;
-    font-size: pxToRem(18px);
+    font-size: pxToRem(14px);
     font-weight: 700;
     line-height: pxToRem(21.78px);
     padding-right: pxToRem(4px);
     cursor: pointer;
-    width: pxToRem(88px);
+    min-width: pxToRem(90px);
     &:hover {
       border-radius: pxToRem(16px);
       background-color: #000000;
@@ -186,6 +186,7 @@
     }
     .wallet-panel {
       flex: 1;
+      overflow: hidden;
       .token-list {
         display: flex;
         flex-flow: row wrap;
@@ -203,6 +204,7 @@
         line-height: 2.5rem;
         font-weight: 700;
         color: #000;
+        font-size: pxToRem(14px);
       }
     }
   }
