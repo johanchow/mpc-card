@@ -1,4 +1,5 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useFetchWalletAddress } from 'official-common';
 import Logo from "../../component/Logo";
 import NavBar from "../../component/NavBar";
 import Profile from "../../component/Profile";
@@ -15,6 +16,7 @@ const navItems = [{
 const Card = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  useFetchWalletAddress();
   const activeNavKey = location.pathname.includes('card/add') ? 'add' : 'extract';
   const onChangeNav = (newActiveKey: string) => {
     const newPath = navItems.find(item => item.key === newActiveKey)?.path || navItems[0].path;

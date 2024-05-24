@@ -2,41 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form'
 import { formatMoney, queryTokenExchangeRate } from 'official-common';
 import './Recharge.scss';
-import ethImage from './image/eth.png';
-import usdcImage from './image/usdc.png';
-import solImage from './image/solana.png';
-import usdtImage from './image/usdt.png';
-import btcImage from './image/btc.png';
 import chooseTokenImage from './image/choose-token.png';
-
-enum TokenName {
-  ETH = 'ETH',
-  USDC = 'USDC',
-  SOL = 'SOL',
-  USDT = 'USDT',
-  BTC = 'BTC',
-};
-const tokens = [{
-  id: 'ethereum',
-  name: TokenName.ETH,
-  img: ethImage,
-}, {
-  id: 'usd-coin',
-  name: TokenName.USDC,
-  img: usdcImage,
-}, {
-  id: 'solana',
-  name: TokenName.SOL,
-  img: solImage,
-}, {
-  id: 'tether',
-  name: TokenName.USDT,
-  img: usdtImage,
-}, {
-  id: 'bitcoin',
-  img: btcImage,
-  name: TokenName.BTC,
-}];
+import { TokenName, supportedTokens } from './common';
 
 const Recharge = () => {
   const [usd, setUsd] = useState<number | undefined>();
@@ -49,7 +16,7 @@ const Recharge = () => {
   
   // 当inputAmount变化时，重新计算usd
   useEffect(() => {
-    const tokenId = tokens.find(item => item.name === tokenName)?.id;
+    const tokenId = supportedTokens.find(item => item.name === tokenName)?.id;
     if (!inputAmount || !tokenName || !tokenId) return;
     queryTokenExchangeRate([tokenId], 'usd').then((result: Record<string, number>) => {
       const rate = result[tokenId];
@@ -61,7 +28,7 @@ const Recharge = () => {
     setTokenChoosing(false);
     setTokenName(tokenName);
   };
-  const tokenImage = tokens.find(item => item.name === tokenName)?.img;
+  const tokenImage = supportedTokens.find(item => item.name === tokenName)?.img;
   return <div className="recharge-dialog flex-col-stretch">
     <div className="recharge-title">Please complete your first Recharge.</div>
     <form onSubmit={handleSubmit(onSubmit)} className="flex-col-stretch">
@@ -103,7 +70,7 @@ const TokenSelect: React.FC<{
     onSelect(name);
   };
   return <div className="token-list">
-    {tokens.map((item) => {
+    {supportedTokens.map((item) => {
       return (
         <div key={item.name} onClick={() => handleClick(item.name)}
           className={`token-option ${selectedName === item.name ? 'active' : ''}`}>

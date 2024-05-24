@@ -13,6 +13,7 @@ const msgIdToText: Record<number, string> = {
 const getTextOfMsgId = (msgId: number) => {
   return msgIdToText[msgId];
 };
+const defaultErrorMsg = 'network or server error, please try later';
 
 const ajaxOnlyCoin = async <T = any>(config: AxiosRequestConfig): Promise<T> => {
   const resp = await axios.request(config);
@@ -63,6 +64,13 @@ const ajaxCoingecko = async <T = any>(config: AxiosRequestConfig): Promise<T | u
 //   } else if (config.url?.includes('SendEmail')) {
 //     return {
 //     } as T;
+//   } else if (config.url?.includes('user_wallet_addr')) {
+//     return {
+//       bsc: "0x3fasdf323fadsf3r2fsaf32fasdf3",
+//       eth: "0xaadsf2e2e32vdv3vad3vcva3v",
+//       ok: "0xadsf93k0kda9j3q3223vxwfa3vv23",
+//       sol: "0xzxvxzcvbner4v2vasdf32b32avb",
+//     } as T;
 //   }
 //   return undefined as T;
 // }
@@ -73,4 +81,5 @@ export type {
 export {
   ajaxCoingecko,
   ajaxOnlyCoin,
+  defaultErrorMsg,
 };

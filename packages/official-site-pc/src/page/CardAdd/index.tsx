@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import GetCardButton from "../../component/GetCardButton";
 import { Modal } from 'official-common';
-import Recharge from "./Recharge";
+import RechargeFromExtension from "./RechargeFromExtension";
+import RechargeFromQrcode from "./RechargeFromQrcode";
 import './AddCard.scss';
 import visaImage from './image/visa.png';
 import mastercardImage from './image/mastercard.png';
@@ -24,10 +25,6 @@ const AddCard: React.FC = () => {
             onClick={() => setCardType(CardType.Visa)} />
           <img alt='' src={mastercardImage} className={`button mastercard ${cardType === CardType.MasterCard ? 'active' : ''}`}
             onClick={() => setCardType(CardType.MasterCard)} />
-          {/* <div className={`button visa ${cardType === CardType.Visa ? 'active' : ''}`}
-            onClick={() => setCardType(CardType.Visa)}></div>
-          <div className={`button mastercard ${cardType === CardType.MasterCard ? 'active' : ''}`}
-            onClick={() => setCardType(CardType.MasterCard)}></div> */}
         </div>
       </div>
       <div className="card-instruction">
@@ -43,7 +40,7 @@ const AddCard: React.FC = () => {
       </div>
     </div>
     <GetCardButton onClick={() => Modal.show({
-      content: <Recharge />,
+      content: <RechargeFromQrcode />,
       styles: {
         width: `${680/16}rem`,
         boxSizing: 'border-box',

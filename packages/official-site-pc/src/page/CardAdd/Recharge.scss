@@ -13,6 +13,37 @@
   align-items: stretch;
 }
 .recharge-dialog {
+  .token-option {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: pxToRem(6px);
+    font-family: Inter;
+    font-size: pxToRem(18px);
+    font-weight: 700;
+    line-height: pxToRem(21.78px);
+    padding-right: pxToRem(4px);
+    cursor: pointer;
+    width: pxToRem(88px);
+    &:hover {
+      border-radius: pxToRem(16px);
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+    &.active {
+      border-radius: pxToRem(16px);
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+    img {
+      width: pxToRem(26px);
+      height: pxToRem(26px);
+    }
+  }
+}
+
+.recharge-dialog {
   // padding: pxToRem(30px);
   font-family: 'Inter';
   font-style: normal;
@@ -111,27 +142,67 @@
       background: #EDEDED;
       gap: pxToRem(12px);
       box-shadow: 0px 22px 6px 0px #00000000;
-      .token-option {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: pxToRem(6px);
+    }
+  }
+}
+
+.recharge-dialog {
+  .recharge-title {
+    font-family: Inter;
+    font-size: pxToRem(24px);
+    font-weight: 700;
+    line-height: pxToRem(30px);
+    color: #000000;
+  }
+  .recharge-qrcode-body {
+    margin-top: pxToRem(20px);
+    padding: pxToRem(30px);
+    background-color: #FFF;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: pxToRem(30px);
+    border-radius: pxToRem(20px);
+    .qrcode-panel,
+    .wallet-panel {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      .panel-title {
         font-family: Inter;
-        font-size: pxToRem(18px);
+        font-size: pxToRem(20px);
         font-weight: 700;
-        line-height: pxToRem(21.78px);
-        padding-right: pxToRem(4px);
-        cursor: pointer;
-        &:hover {
-          border-radius: pxToRem(16px);
-          background-color: #000000;
-          color: #FFFFFF;
-        }
-        img {
-          width: pxToRem(26px);
-          height: pxToRem(26px);
-        }
+        color: #828282;
+        margin-bottom: pxToRem(20px);
+      }
+    }
+    .qrcode-panel {
+      .qrcode {
+        width: pxToRem(180px);
+        height: pxToRem(180px);
+      }
+    }
+    .wallet-panel {
+      flex: 1;
+      .token-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: pxToRem(30px);
+        margin-bottom: auto;
+      }
+      .wallet-address {
+        background: #EDEDED;
+        width: 100%;
+        border-radius: pxToRem(5px);
+        height: pxToRem(40px);
+        text-align: left;
+        line-height: 2.5rem;
+        font-weight: 700;
+        color: #000;
       }
     }
   }

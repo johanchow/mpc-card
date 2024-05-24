@@ -1,9 +1,8 @@
-import { ajaxOnlyCoin } from './ajax';
+import { ajaxOnlyCoin, defaultErrorMsg } from './ajax';
 import m from '../component/Message';
 import type { IdentityState } from '../store/identity';
 import CustomError from '../util/custom-error';
 
-const defaultErrorMsg = 'network or server error, please try later';
 const noticeSendVerifyCode = async (data: Record<string, string>): Promise<boolean> => {
   console.log('开始请求发送验证码: ', data);
   let resp;
