@@ -10,6 +10,23 @@ $base-font-size: 16px;
   background-repeat: no-repeat;
   background-position: center;
 }
+@mixin flex-row($justify-content: center, $align-items: center, $gap: 0, $wrap: nowrap) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+}
+@mixin flex-column($justify-content: center, $align-items: center, $gap: 0, $wrap: nowrap) {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+}
+
 
 $close-icon-size: 24px !default;
 $close-icon-line-width: 2px !default;

@@ -1,0 +1,49 @@
+@import '../../../../official-common/src/style/common.scss';
+@import '../../app.scss';
+
+.card-list {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	overflow-x: hidden;
+	gap: 10px;
+	height: calc(100vh - $app-header-height);
+	.card-value {
+		font-weight: 700;
+		font-size: pxToRem(16px);
+		color: #fff
+	}
+	.card-label {
+		font-weight: 400;
+		font-size: pxToRem(12px);
+		color: rgba(142, 142, 142, 1);
+	}
+	.card-item {
+		// width: pxToRem(330px);
+		// height: pxToRem(200px);
+		background: linear-gradient(120.12deg, #000000 32.4%, #666666 147.41%);
+		border: 1px solid rgba(51, 51, 51, 1);
+		padding: pxToRem(20px);
+		.card-balance {
+			@include flex-row(flex-end);
+		}
+		.card-chip {
+			margin-top: pxToRem(18px);
+			img {
+				width: pxToRem(38px);
+				height: pxToRem(27px);
+			}
+		}
+		.card-number {
+			margin-top: pxToRem(20px);
+			@include flex-column(flex-start, flex-start, 1px);
+			.card-value {
+				@include flex-row(flex-start, center, pxToRem(8px));
+			}
+			.card-label {
+				font-size: pxToRem(14px);
+			}
+		}
+	}
+}

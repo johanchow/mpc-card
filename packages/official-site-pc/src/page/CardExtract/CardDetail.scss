@@ -1,0 +1,108 @@
+@import '../../../../official-common/src/style/common.scss';
+
+.card-detail {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	gap: 8px;
+	margin-top: pxToRem(152px);
+	.tab {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		.tab-item {
+			border-radius: pxToRem(5px);
+			flex: 1;
+			border: 1px solid #505051;
+			height: pxToRem(33px);
+			line-height: pxToRem(33px);
+			text-align: center;
+			font-weight: 700;
+			font-size: pxToRem(12px);
+			color: #fff;
+			cursor: pointer;
+			&.active {
+				color: #000;
+				background: #FFFFFF;
+				border: 1px;
+			}
+		}
+	}
+	.filter-input {
+		input {
+			width: 100%;
+			box-sizing: border-box;
+			height: pxToRem(30px);
+			line-height: pxToRem(30px);
+			border-radius: pxToRem(5px);
+			border: 1px;
+		}
+	}
+	.transaction-table {
+		border-radius: pxToRem(5px);
+		border: 1px solid #505051;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: flex-start;
+		align-items: stretch;
+		$id-column-width: pxToRem(150px);
+		$state-column-width: pxToRem(60px);
+		$amount-column-width: pxToRem(75px);
+		$date-column-width: pxToRem(56px);
+		.transaction-table-header {
+			height: pxToRem(35px);
+			box-sizing: border-box;
+			border-bottom: 1px solid #505051;
+			// width: $id-column-width;
+			padding: pxToRem(10px);
+			@include flex-row(flex-start, center, 0, nowrap);
+			color: #fff;
+			font-size: pxToRem(12px);
+			font-weight: 700;
+			& > * {
+				flex-shrink: 0;
+			}
+			.id-column-header {
+				width: $id-column-width;
+			}
+			.state-column-header {
+				width: $state-column-width;
+			}
+			.amount-column-header {
+				width: $amount-column-width;
+			}
+			.date-column-header {
+				width: $date-column-width;
+			}
+		}
+		.transaction-table-body {
+			padding: pxToRem(10px);
+			color: #fff;
+			font-size: pxToRem(10px);
+			font-weight: 400;
+			@include flex-column(flex-start, stretch, pxToRem(14px), nowrap);
+			& > * {
+				flex-shrink: 0;
+			}
+			.transaction-item {
+				@include flex-row(flex-start, center, 0, nowrap);
+				.id-column-data {
+					width: $id-column-width;
+				}
+				.state-column-data {
+					width: $state-column-width;
+				}
+				.amount-column-data {
+					width: $amount-column-width;
+					@include flex-column(flex-start, flex-end, 0, nowrap);
+				}
+				.date-column-data {
+					width: $date-column-width;
+				}
+			}
+		}
+	}
+}

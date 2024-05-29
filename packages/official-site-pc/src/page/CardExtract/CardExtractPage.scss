@@ -1,0 +1,10 @@
+@import '../../../../official-common/src/style/common.scss';
+
+.card-extract-page {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: pxToRem(28px);
+}
+

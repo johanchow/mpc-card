@@ -1,15 +1,22 @@
-## 给大仓安装依赖
+## 项目架构
+本项目是同时支持PC版和H5版，用lerna管理的大仓模式。其中
+- official-common: 公共模块，包括通用组件、公共功能、样式等
+- official-pc: PC端的业务逻辑和样式
+- official-h5: H5端的业务逻辑和样式
+重要的是：上面3个项目都支持独立的开发调试、打包；而且official-pc和official-h5项目开发时候，是引用official-common源码，比起传统的npm link等方式便利很多。
+
+## 全部项目整体安装依赖
 ``` shell
 yarn add sass --dev -W
 ```
 
-## 给小仓单独安装依赖
+## 单个项目独立安装依赖
 ``` shell
 cd packages/official-xxx
-yarn add mmm
+yarn add sass
 ```
 
-## 跨项目引用公用模块资源
+## 跨项目引用公共模块资源
 webpack本身支持alias配置，从而从其他目录引用源码。
 这里有几个配置点: 
 1. create-react-app创建项目webpack.config.js是被隐藏的

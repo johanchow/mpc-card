@@ -5,8 +5,9 @@
   min-height: 100vh;
 }
 
+$app-header-height: pxToRem(128px);
 .app-header {
-  height: pxToRem(128px);
+  height: $app-header-height;
   padding: 0 pxToRem(50px);
   display: flex;
   justify-content: space-between;
