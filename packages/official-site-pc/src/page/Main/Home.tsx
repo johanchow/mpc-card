@@ -6,19 +6,19 @@ import GetCardButton from "../../component/GetCardButton";
 const itemHeight = `${110/16}rem`;
 const itemWidth = `${180/16}rem`;
 const items = [{
-  img: '/Home/apple.png',
+  img: '/mpc/Home/apple.png',
   height: itemHeight,
   width: itemWidth,
 }, {
-  img: '/Home/behance.png',
+  img: '/mpc/Home/behance.png',
   height: itemHeight,
   width: itemWidth,
 }, {
-  img: '/Home/discord.png',
+  img: '/mpc/Home/discord.png',
   height: itemHeight,
   width: itemWidth,
 }, {
-  img: '/Home/slack.png',
+  img: '/mpc/Home/slack.png',
   height: itemHeight,
   width: itemWidth,
 }];
