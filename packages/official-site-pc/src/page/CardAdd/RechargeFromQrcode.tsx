@@ -52,12 +52,14 @@ const {
 	let qrcodeInstance: any;
 	const initQrcode = (element: HTMLDivElement, chainAddress: string) => {
 		p.then(() => {
+      // @ts-ignore
 			qrcodeInstance = new window.QRCode(element, {
 				text: chainAddress,
 				width: element.clientWidth,
 				height: element.clientHeight,
 				colorDark : "#000000",
 				colorLight : "#ffffff",
+        // @ts-ignore
 				correctLevel : window.QRCode.CorrectLevel.H
 			});
 		});
