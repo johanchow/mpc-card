@@ -60,6 +60,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <Navigate to='/main/home' replace />
   }
-]);
+], {
+  basename: '/mpc'
+});
 
 export default router;
